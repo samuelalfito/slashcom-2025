@@ -22,11 +22,13 @@ app = FastAPI(
 # --- MEMUAT MODEL DAN SCALER SAAT APLIKASI DIMULAI ---
 # Model hanya dimuat sekali untuk efisiensi
 
+BASE_DIR = os.path.dirname(__file__) 
+
 try:
     print("--- Memuat Model dan Scaler ---")
-    model_emotion = joblib.load("model/model_emotion.joblib")
-    model_stress = joblib.load("model/model_stress.joblib")
-    scaler = joblib.load("model/scaler.joblib")
+    model_emotion = joblib.load(os.path.join(BASE_DIR, "model", "model_emotion.joblib"))
+    model_stress = joblib.load(os.path.join(BASE_DIR, "model", "model_stress.joblib"))
+    scaler = joblib.load(os.path.join(BASE_DIR, "model", "scaler.joblib"))
     print("✅ Model dan scaler berhasil dimuat.")
 except FileNotFoundError:
     print("❌ Error: File model atau scaler tidak ditemukan. Pastikan path sudah benar.")
