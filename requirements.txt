@@ -1,4 +1,7 @@
-pip install librosa
-pip install fastapi
-pip install uvicorn
-pip install python-multipart
+fastapi
+uvicorn
+librosa
+numpy
+joblib
+scikit-learn
+python-multipart
